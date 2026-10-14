@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2563eb" />
+
+    <title>Valixoowise</title>
+
+    <!-- ============================================================
+         ✅ Google Fonts — Optimized Single Request
+         ============================================================ -->
+    <!-- 1. Preconnect (DNS + TLS আগেই করে রাখে) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- 2. Single request — শুধু দরকারি weight (400,500,600,700) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ============================================================
+         ✅ Fallback Fonts — Local system fonts (fast)
+         ============================================================ -->
+    <style>
+        /* Font render হওয়ার আগে fallback — কোনো blank নেই */
+        html {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 
+                         'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

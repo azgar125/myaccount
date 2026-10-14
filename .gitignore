@@ -1,0 +1,99 @@
+# ============================================================
+# Environment files - NEVER commit
+# ============================================================
+.env
+.env.*
+!.env.example
+
+# ============================================================
+# OS Files
+# ============================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# IDE / Editors
+# ============================================================
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ============================================================
+# Logs
+# ============================================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ============================================================
+# Backend (Laravel)
+# ============================================================
+backend/vendor/
+backend/node_modules/
+backend/.env
+backend/.env.*
+!backend/.env.example
+backend/storage/logs/*.log
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/storage/app/*
+backend/bootstrap/cache/*
+!backend/storage/.gitkeep
+!backend/storage/logs/.gitkeep
+
+# ============================================================
+# Frontend (React)
+# ============================================================
+client/node_modules/
+client/dist/
+client/build/
+client/.env
+client/.env.*
+!client/.env.example
+client/.vite/
+client/*.local
+
+# ============================================================
+# Build / Cache
+# ============================================================
+.cache/
+.temp/
+tmp/
+dist/
+build/
+
+# ============================================================
+# Sensitive Documents
+# ============================================================
+*.xlsx
+*.xls
+Demo.pdf
+Dollar_Buy_Sell_Accounting*.xlsx
+backup-*
+
+# ============================================================
+# Archives
+# ============================================================
+*.zip
+*.rar
+*.7z
+# Test artifacts
+cookies.txt
+backend/cookies.txt
+backend/login.json
+
+# Certificates - NEVER commit
+backend/storage/certs/*.pem
+backend/storage/certs/*.crt
+backend/storage/certs/*.key
+
+# Environment files
+.env
+.env.*
+*.env

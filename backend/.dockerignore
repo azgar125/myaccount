@@ -1,0 +1,33 @@
+# Git
+.git
+.gitignore
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Dependencies
+vendor/
+node_modules/
+
+# Storage runtime
+storage/logs/*.log
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+
+# Bootstrap cache
+bootstrap/cache/*.php
+
+# PHPUnit
+.phpunit.result.cache
+.phpunit.cache
+tests/
+
+# Docs
+README.md
+*.md
+
+# ⚠️ IMPORTANT: Do NOT exclude storage/certs/ca.pem
+# We need ca.pem inside Docker image for SSL connection
