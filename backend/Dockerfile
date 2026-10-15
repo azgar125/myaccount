@@ -64,7 +64,7 @@ RUN chown -R www-data:www-data \
 RUN chmod -R 777 bootstrap/cache storage || true
 
 # Railway uses the PORT environment variable
-EXPOSE 8080
+EXPOSE 8000
 
 # Start Laravel
-CMD ["sh", "-c", "exec php -S 0.0.0.0:${PORT:-8080} server.php"]
+CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-8000} -t public"] 
