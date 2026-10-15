@@ -12,18 +12,21 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => array_filter([
-        env('FRONTEND_URL', 'https://client-eight-blond-99.vercel.app'),
+    'allowed_origins' => array_values(array_unique(array_filter([
+        env('FRONTEND_URL', 'https://myaccount-iota-three.vercel.app'),
+        'https://myaccount-iota-three.vercel.app',
+        'https://client-eight-blond-99.vercel.app',
         'https://client-accounting-system.onrender.com',
+        'https://myaccount-production-a114.up.railway.app',
         'http://localhost:5173',
         'http://localhost:3000',
         'http://localhost:4173',
-        'myaccount-iota-three.vercel.app',
-        'myaccount-git-main-azgarbd-3062s-projects.vercel.app',
-        'https://myaccount-production-a114.up.railway.app/'
-    ]),
+    ]))),
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => [
+        '#^https://myaccount-.*\.vercel\.app$#',
+        '#^https://client-.*\.vercel\.app$#',
+    ],
 
     'allowed_headers' => ['*'],
 
@@ -34,6 +37,5 @@ return [
     'supports_credentials' => true,
 
 ];
-
 
 
