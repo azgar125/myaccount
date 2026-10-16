@@ -13,18 +13,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // ✅ CORS middleware সবার আগে — preflight requests handle করার জন্য
-        $middleware->prepend(\Illuminate\Http\Middleware\HandleCors::class);
+        // ✅ Render/proxy-র পিছনে HTTPS detect করার জন্য must
+        $middleware->trustProxies(at: '*');
 
         // ✅ Sanctum stateful middleware — SPA auth-এর জন্য
+        // এটাই automatically session + cookie middleware load করে
         $middleware->api(prepend: [
             EnsureFrontendRequestsAreStateful::class,
-        ]);
-
-        // ✅ API routes-এ StartSession + CSRF cookie পাঠানোর জন্য
-        $middleware->api(append: [
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
         ]);
 
         // ✅ Role middleware alias register

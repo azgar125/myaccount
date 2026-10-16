@@ -2,12 +2,6 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Cross-Origin Resource Sharing (CORS) Configuration
-    |--------------------------------------------------------------------------
-    */
-
     'paths' => [
         'api/*',
         'sanctum/csrf-cookie',
@@ -22,10 +16,8 @@ return [
 
     'allowed_origins' => array_values(array_unique(array_filter([
         env('FRONTEND_URL'),
-        env('APP_URL'),
         'https://myaccount-iota-three.vercel.app',
         'https://client-eight-blond-99.vercel.app',
-        'https://client-accounting-system.onrender.com',
         'http://localhost:5173',
         'http://localhost:3000',
         'http://localhost:4173',
@@ -37,8 +29,6 @@ return [
     'allowed_origins_patterns' => [
         '#^https://myaccount-.*\.vercel\.app$#',
         '#^https://client-.*\.vercel\.app$#',
-        '#^https://.*\.vercel\.app$#',
-        '#^https://.*\.onrender\.com$#',
         '#^https://.*\.up\.railway\.app$#',
         '#^http://localhost:\d+$#',
         '#^http://127\.0\.0\.1:\d+$#',
@@ -52,6 +42,9 @@ return [
         'Origin',
         'X-CSRF-TOKEN',
         'X-XSRF-TOKEN',
+        'Accept-Language',
+        'Cache-Control',
+        'Pragma',
     ],
 
     'exposed_headers' => [
