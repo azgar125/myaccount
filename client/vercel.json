@@ -5,7 +5,15 @@
   "installCommand": "npm install",
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/api/:path*",
+      "destination": "https://myaccount-production-a114.up.railway.app/api/:path*"
+    },
+    {
+      "source": "/sanctum/:path*",
+      "destination": "https://myaccount-production-a114.up.railway.app/sanctum/:path*"
+    },
+    {
+      "source": "/((?!api/|sanctum/|assets/).*)",
       "destination": "/index.html"
     }
   ]
