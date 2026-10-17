@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-// For localhost development
-// Laravel backend typically runs on http://localhost:8000
+// VITE_API_URL must NOT include /api — only the base domain
+// Example: https://client-accounting-system.onrender.com
 const API_URL = (
-  import.meta.env.VITE_API_URL || 'http://localhost:8000'
+  import.meta.env.VITE_API_URL  || 'https://myaccount-production-a114.up.railway.app/'
 ).replace(/\/api\/?$/, '');
 
 /**
- * Get XSRF token from cookies (for Sanctum auth)
+ * Get XSRF token from cookies (for cross-domain Sanctum auth)
  */
 function getXsrfToken() {
   if (typeof document === 'undefined') return null;
@@ -16,10 +16,10 @@ function getXsrfToken() {
 }
 
 /**
- * Main API instance — Sanctum SPA auth (localhost)
+ * Main API instance — cross-domain Sanctum SPA auth
  */
 const api = axios.create({
-  baseURL: `${API_URL}/api`,
+  baseURL: `${API_URL}/api`,   // ✅ /api যোগ করা হচ্ছে এখানে
   withCredentials: true,
   withXSRFToken: true,
   xsrfCookieName: 'XSRF-TOKEN',
@@ -87,16 +87,20 @@ api.interceptors.response.use(
 export default api;
 
 
+
+
+
+
 // import axios from 'axios';
 
-// // VITE_API_URL must NOT include /api — only the base domain
-// // Example: https://client-accounting-system.onrender.com
+// // For localhost development
+// // Laravel backend typically runs on http://localhost:8000
 // const API_URL = (
-//   import.meta.env.VITE_API_URL  || 'https://client-accounting-system.onrender.com'
+//   import.meta.env.VITE_API_URL || 'http://localhost:8000'
 // ).replace(/\/api\/?$/, '');
 
 // /**
-//  * Get XSRF token from cookies (for cross-domain Sanctum auth)
+//  * Get XSRF token from cookies (for Sanctum auth)
 //  */
 // function getXsrfToken() {
 //   if (typeof document === 'undefined') return null;
@@ -105,10 +109,10 @@ export default api;
 // }
 
 // /**
-//  * Main API instance — cross-domain Sanctum SPA auth
+//  * Main API instance — Sanctum SPA auth (localhost)
 //  */
 // const api = axios.create({
-//   baseURL: `${API_URL}/api`,   // ✅ /api যোগ করা হচ্ছে এখানে
+//   baseURL: `${API_URL}/api`,
 //   withCredentials: true,
 //   withXSRFToken: true,
 //   xsrfCookieName: 'XSRF-TOKEN',
@@ -174,3 +178,5 @@ export default api;
 // );
 
 // export default api;
+
+
