@@ -34,7 +34,7 @@ use App\Http\Controllers\{
 |--------------------------------------------------------------------------
 */
 
-Route::post('/api/auth/login', [
+Route::post('/auth/login', [
     AuthController::class,
     'login'
 ])->middleware('throttle:5,1');
